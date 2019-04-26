@@ -33,9 +33,19 @@ public interface VideoMapper {
     @Update("UPDATE video SET title = #{title} WHERE id = #{id}")
     int update(Video video);
 
+    /**
+     * 删除视频
+     * @param id
+     * @return
+     */
     @Delete("DELETE FROM video WHERE id = #{id}")
     int delete(int id);
 
+    /**
+     * 插入新的视频信息
+     * @param video
+     * @return
+     */
     @Insert("INSERT INTO `wechat_pay`.`video`(`title`, `summary`," +
             " `cover_img`, `view_num`, `price`, `create_time`, `online`," +
             " `point`) VALUES (#{title},#{summary},#{coverImg},#{viewNum}," +
