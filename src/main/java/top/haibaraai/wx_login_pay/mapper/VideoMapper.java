@@ -2,6 +2,7 @@ package top.haibaraai.wx_login_pay.mapper;
 
 import org.apache.ibatis.annotations.*;
 import top.haibaraai.wx_login_pay.domain.Video;
+import top.haibaraai.wx_login_pay.provider.VideoProvider;
 
 import java.util.List;
 
@@ -30,7 +31,7 @@ public interface VideoMapper {
      * @param video
      * @return
      */
-    @Update("UPDATE video SET title = #{title} WHERE id = #{id}")
+    @UpdateProvider(type = VideoProvider.class, method = "updateVideo")
     int update(Video video);
 
     /**

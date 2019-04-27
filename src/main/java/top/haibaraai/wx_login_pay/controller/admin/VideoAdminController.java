@@ -6,7 +6,7 @@ import top.haibaraai.wx_login_pay.domain.Video;
 import top.haibaraai.wx_login_pay.service.VideoService;
 
 @RestController
-@RequestMapping("admin")
+@RequestMapping("admin/video")
 public class VideoAdminController {
 
     @Autowired
