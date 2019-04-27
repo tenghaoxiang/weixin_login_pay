@@ -2,7 +2,6 @@ package top.haibaraai.wx_login_pay.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import top.haibaraai.wx_login_pay.domain.Video;
 import top.haibaraai.wx_login_pay.service.VideoService;
 
 @RestController
@@ -12,34 +11,26 @@ public class VideoController {
     @Autowired
     private VideoService videoService;
 
+    /**
+     * 分页接口
+     * @param page　当前第几页，默认第一页
+     * @param size　每页显示几条，默认10条
+     * @return
+     */
     @GetMapping("page")
-    public Object pageVideo() {
+    public Object pageVideo(@RequestParam(value = "page", defaultValue = "1")int page,
+                            @RequestParam(value = "size", defaultValue = "10")int size) {
         return videoService.findAll();
     }
 
+    /**
+     * 根据id查找视频
+     * @param videoId
+     * @return
+     */
     @GetMapping("find_by_id")
-    public Object findById(int id) {
-        return videoService.findById(id);
-    }
-
-    @DeleteMapping("delete_by_id")
-    public Object deleteById(int id) {
-        return videoService.delete(id);
-    }
-
-    @PutMapping("update_by_id")
-    public Object update(int id, String title) {
-        Video video = new Video();
-        video.setId(id);
-        video.setTitle(title);
-        return videoService.update(video);
-    }
-
-    @PostMapping("save")
-    public Object save(String title) {
-        Video video = new Video();
-        video.setTitle(title);
-        return videoService.save(video);
+    public Object findById(@RequestParam(value = "video_id", required = true) int videoId) {
+        return videoService.findById(videoId);
     }
 
 }
