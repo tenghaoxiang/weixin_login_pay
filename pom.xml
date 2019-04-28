@@ -59,6 +59,12 @@
 			<artifactId>pagehelper</artifactId>
 			<version>4.1.3</version>
 		</dependency>
+		<!--JWT依赖-->
+		<dependency>
+			<groupId>io.jsonwebtoken</groupId>
+			<artifactId>jjwt</artifactId>
+			<version>0.7.0</version>
+		</dependency>
 	</dependencies>
 
 	<build>
