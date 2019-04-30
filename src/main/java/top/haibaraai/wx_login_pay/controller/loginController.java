@@ -29,4 +29,11 @@ public class loginController {
 
     }
 
+    @RequestMapping("/user/callback")
+    public void wechatUserCallback(@RequestParam(value = "code") String code,
+                                   @RequestParam(value = "state") String state) {
+        System.out.println("code" + code);
+        System.out.println("state" + state);
+    }
+
 }
