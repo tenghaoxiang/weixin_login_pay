@@ -32,6 +32,12 @@ public class WechatConfig {
     @Value("${login.qrcode_url}")
     private String loginQrcodeUrl;
 
+    @Value("${login.access_token_url}")
+    private String loginAccessTokenUrl;
+
+    @Value("${login.user_info_url}")
+    private String loginUserInfoUrl;
+
     public String getLoginAppID() {
         return loginAppID;
     }
@@ -46,5 +52,13 @@ public class WechatConfig {
 
     public String getLoginQrcodeUrl() {
         return loginQrcodeUrl;
+    }
+
+    public String getLoginAccessTokenUrl() {
+        return loginAccessTokenUrl;
+    }
+
+    public String getLoginUserInfoUrl() {
+        return loginUserInfoUrl;
     }
 }
