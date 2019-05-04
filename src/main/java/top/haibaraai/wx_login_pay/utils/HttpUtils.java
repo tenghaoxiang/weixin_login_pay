@@ -74,8 +74,8 @@ public class HttpUtils {
                 .setRedirectsEnabled(true)
                 .build();
         HttpPost httpPost = new HttpPost(url);
-        httpPost.setHeader("Content-Type", "text/html; charset=UTF-8");
         httpPost.setConfig(requestConfig);
+        httpPost.addHeader("Content-Type", "text/html;charset=UTF-8");
 
         if (data != null) {
             StringEntity entity = new StringEntity(data, "UTF-8");
@@ -85,8 +85,8 @@ public class HttpUtils {
         try {
             CloseableHttpResponse httpResponse = httpClient.execute(httpPost);
             if (httpResponse.getStatusLine().getStatusCode() == 200) {
-                HttpEntity httpEntity = httpPost.getEntity();
-                String result = EntityUtils.toString(httpEntity);
+                HttpEntity httpEntity = httpResponse.getEntity();
+                String result = EntityUtils.toString(httpEntity, "UTF-8");
                 return result;
             }
         } catch (Exception e) {
