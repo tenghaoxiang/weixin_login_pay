@@ -2,6 +2,8 @@ package top.haibaraai.wx_login_pay.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 import top.haibaraai.wx_login_pay.config.WechatConfig;
 import top.haibaraai.wx_login_pay.domain.User;
 import top.haibaraai.wx_login_pay.domain.Video;
@@ -32,6 +34,7 @@ public class VideoOrderServiceImpl implements VideoOrderService {
     private VideoOrderMapper videoOrderMapper;
 
     @Override
+    @Transactional(propagation = Propagation.REQUIRED)
     public String insert(VideoOrder videoOrder) throws Exception {
 
         //查找视频信息
