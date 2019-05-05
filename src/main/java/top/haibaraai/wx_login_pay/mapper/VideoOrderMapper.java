@@ -38,7 +38,7 @@ public interface VideoOrderMapper {
      * @return
      */
     @Select("select * from video_order where out_trade_no = #{outTradeNo} and del = 0")
-    VideoOrder findByOutTradeNo(int outTradeNo);
+    VideoOrder findByOutTradeNo(String outTradeNo);
 
     /**
      * 逻辑删除
@@ -62,8 +62,8 @@ public interface VideoOrderMapper {
      * @param videoOrder
      * @return
      */
-    @Update("update video_order set state = #{state}, notify_time = #{notifyTime}, openid = #{openid}" +
-            " where out_trade_no = #{outTradeNo} and state = 0 and del = 0")
+    @Update("UPDATE video_order SET state = #{state}, notify_time =#{notifyTime}, openid = #{openid}" +
+            " WHERE out_trade_no = #{outTradeNo} and state = 0 and del = 0")
     int updateByOutTradeNo(VideoOrder videoOrder);
 
 }

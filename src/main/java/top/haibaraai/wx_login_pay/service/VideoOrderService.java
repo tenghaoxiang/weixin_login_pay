@@ -11,7 +11,7 @@ public interface VideoOrderService {
 
     VideoOrder findById(int id);
 
-    VideoOrder findByOutTradeNo(int outTradeNo);
+    VideoOrder findByOutTradeNo(String outTradeNo);
 
     int delOrder(@Param("id") int id, @Param("userId") int userId);
 

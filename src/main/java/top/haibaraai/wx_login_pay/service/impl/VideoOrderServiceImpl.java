@@ -105,7 +105,7 @@ public class VideoOrderServiceImpl implements VideoOrderService {
     }
 
     @Override
-    public VideoOrder findByOutTradeNo(int outTradeNo) {
+    public VideoOrder findByOutTradeNo(String outTradeNo) {
         return videoOrderMapper.findByOutTradeNo(outTradeNo);
     }
 
