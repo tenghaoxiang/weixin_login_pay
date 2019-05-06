@@ -1,5 +1,7 @@
 package top.haibaraai.wx_login_pay.controller;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -30,6 +32,9 @@ import java.util.TreeMap;
 @RestController
 @RequestMapping("/wechat/order")
 public class OrderController {
+
+    private Logger logger = LoggerFactory.getLogger(this.getClass());
+    private Logger dataLogger = LoggerFactory.getLogger("dataLogger");
 
     @Autowired
     private WechatConfig wechatConfig;
