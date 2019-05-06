@@ -5,8 +5,8 @@ public class VideoOrder {
 
   private Integer id;
   private String openid;
-  private String outTradeNo;
-  private Integer state;
+  private String outTradeNo; //交易订单号(流水号)
+  private Integer state; //0表示未支付, 1表示已支付
   private java.util.Date createTime;
   private java.util.Date notifyTime;
   private Integer totalFee;
@@ -17,7 +17,7 @@ public class VideoOrder {
   private String videoImg;
   private Integer userId;
   private String ip;
-  private Integer del;
+  private Integer del; //0表示存在, 1表示已删除
 
 
   public Integer getId() {
