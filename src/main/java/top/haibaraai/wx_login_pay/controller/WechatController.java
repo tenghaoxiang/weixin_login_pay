@@ -66,7 +66,7 @@ public class WechatController {
             //生成jwt
             String token = JwtUtils.geneJsonWebToken(user);
             //state 当前用户的页面地址，需要拼接http://，这样才不会站内跳转
-            response.sendRedirect(state + "?token=" + token + "&head_img=" + user.getHeadImg() + "&name=" + user.getName());
+            response.sendRedirect(state + "?token=" + token + "&head_img=" + user.getHeadImg() + "&name=" + URLEncoder.encode(user.getName(), "UTF-8"));
         }
 
     }

@@ -8,7 +8,9 @@ import top.haibaraai.wx_login_pay.domain.JsonData;
 import top.haibaraai.wx_login_pay.domain.Video;
 import top.haibaraai.wx_login_pay.service.VideoService;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("video")
@@ -24,7 +26,7 @@ public class VideoController {
      * @return
      */
     @GetMapping("page")
-    public JsonData pageVideo(@RequestParam(value = "page", defaultValue = "1")int page,
+    public Object pageVideo(@RequestParam(value = "page", defaultValue = "1")int page,
                               @RequestParam(value = "size", defaultValue = "10")int size) {
         PageHelper.startPage(page, size);
         List<Video> list = videoService.findAll();
@@ -32,7 +34,13 @@ public class VideoController {
          * pageInfo包含我们所需要的各种信息，如当前第几页，显示了多少条，一共多少页等
          */
         PageInfo<Video> pageInfo = new PageInfo<>(list);
-        return JsonData.buildSuccess(pageInfo);
+//        return JsonData.buildSuccess(pageInfo);
+        Map<String,Object> data = new HashMap<>();
+        data.put("total_size",pageInfo.getTotal());//总条数
+        data.put("total_page",pageInfo.getPages());//总页数
+        data.put("current_page",page);//当前页
+        data.put("data",pageInfo.getList());//数据
+        return data;
     }
 
     /**
